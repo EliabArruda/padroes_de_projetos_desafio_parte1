@@ -10,7 +10,7 @@ public class SingletonLazyHolder {
         super();
     }
 
-    public SingletonLazyHolder getInstancia(){
+    public static SingletonLazyHolder getInstancia(){
         return Holder.instancia;
     }
 }
