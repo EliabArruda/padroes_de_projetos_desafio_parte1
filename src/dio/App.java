@@ -1,5 +1,6 @@
 package dio;
 
+import dio.facade.Facade;
 import dio.singleton.SingletonEager;
 import dio.singleton.SingletonLazy;
 import dio.singleton.SingletonLazyHolder;
@@ -15,6 +16,7 @@ public class App {
          * Testes de Reutilização de instância com o padrão 'Singleton'
          */
         System.out.println("------------------Singleton------------------");
+
         SingletonLazy lazy = SingletonLazy.getInstancia();
         System.out.println(lazy);
 
@@ -27,9 +29,10 @@ public class App {
         System.out.println();
 
         /**
-         * Testes de Variância de Comportamento com o padrão 'Strategy'
+         * Testando Variância de Comportamento com o padrão 'Strategy'
          */
         System.out.println("------------------Strategy------------------");
+
         ComportamentoNormal normal = new ComportamentoNormal();
         ComportamentoOfensivo ofensivo = new ComportamentoOfensivo();
         ComportamentoDefensivo defensivo = new ComportamentoDefensivo();
@@ -42,6 +45,23 @@ public class App {
 
         robo.setComportamento(ofensivo);
         robo.mover();
+        System.out.println("---------------------------------------------");
+        System.out.println();
+
+        /**
+         * Testando integrações com subsistemas com o padrão 'Facade'
+         * Finalidade: Baixar a complexidade dessas integrações
+         * através de interfaces que gerem ou busquem informações
+         */
+        System.out.println("------------------Facade------------------");
+
+        Facade facade = Facade.getFacade();
+
+        facade.migrarCliente("Eliab", "52131295");
+
+
+
+
 
     }
 }
